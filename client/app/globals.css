@@ -1,18 +1,36 @@
+:root {
+  --main-white: #EEEEEE;
+  --main-light-blue: #176B87;
+  --main-dark-blue: #053B50;
+  --main-teal: #64CCC5;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #FFFADD;
+  background-color: var(--main-white);
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
 }
 
 .main__header {
   width: 100vw;
-  background-color: #FFCC70;
+  background-color: #176B87;
 }
 
 .main__title {
   padding: 30px;
   margin: 0;
-  color: #22668D;
+  color: var(--main-white);
+}
+
+.main__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .github-logo {
@@ -21,12 +39,22 @@ body {
 
 .input-top {
   padding: 100px 30px 20px;
+  width: 50vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-top__field {
+  width: 400px;
+  border: none;
+  border-radius: 4px;
 }
 
 .top-buttons {
   display: flex;
+  flex-direction: column;
 }
 
 .button {
@@ -34,11 +62,29 @@ body {
   justify-content: space-evenly;
 }
 
+.main__output {
+  background-color: rgba(255, 0, 0, 0.209);
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}
+
 .main__footer {
-  width: 100vw;
   background-color: #22668D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 8vh;
+  position: absolute;
+  bottom: 0;
 }
 
 .dev-name {
   color: white;
+  margin-right: 10px;
+}
+
+.link {
+  margin-left: 10px;
 }
