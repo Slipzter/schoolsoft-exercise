@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFADD;
+}
+
+.main__header {
+  width: 100vw;
+  background-color: #FFCC70;
+}
+
+.main__title {
+  padding: 30px;
+  margin: 0;
+  color: #22668D;
+}
+
+.github-logo {
+  width: 28px;
+}
+
+.input-top {
+  padding: 100px 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-buttons {
+  display: flex;
+}
+
+.button {
+  width: fit-content;
+  justify-content: space-evenly;
+}
+
+.main__footer {
+  width: 100vw;
+  background-color: #22668D;
+}
+
+.dev-name {
+  color: white;
+}
