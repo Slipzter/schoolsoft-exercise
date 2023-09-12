@@ -1,10 +1,12 @@
 "use client"
 
 import React, { useState } from 'react';
+import UserCard, { User } from './UserCard';
 
 function App() {
   const [userData, setUserData] = useState('');
   const [apiResponse, setApiResponse] = useState('');
+  const [userArray, setUserArray] = useState([]);
   const [nthNumber, setNthNumber] = useState('');
 
   const baseURL = "http://localhost:8081/api/methods";
@@ -15,7 +17,8 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setApiResponse(JSON.stringify(data));
+        console.log(data);
+        setUserArray(data);
       })
       .catch((error) => {
         console.error(error);
@@ -51,7 +54,7 @@ function App() {
     })
       .then((response) => response.text())
       .then((data) => {
-        setApiResponse(JSON.stringify(data));
+        setApiResponse(data);
       })
       .catch((error) => {
         console.error(error);
@@ -59,6 +62,7 @@ function App() {
   };
 
   const clear = () => {
+    setUserArray([]);
     setApiResponse('');
   }
   
@@ -94,11 +98,15 @@ function App() {
           </div>
         </section>
         <aside className="main__output">
-          <div>
+          <div className='main__output-text'>
+            {apiResponse ? apiResponse : userArray.map((user: User) => {
+              return <UserCard id={user.id} firstname={user.firstname} palindrome={user.palindrome} lastname={user.lastname} age={user.age} username={user.username} />
+            })}
+          </div>
+          <div className='main__output-buttons'>
             <button className='button' onClick={() => getRequest('/users')}>Get Users</button>
             <button className='button' onClick={() => getRequest('/userswithreversednames')}>Get Users With Reversed First Names</button>
           </div>
-          {apiResponse}
           </aside>
       </main>
       <footer className='main__footer'>

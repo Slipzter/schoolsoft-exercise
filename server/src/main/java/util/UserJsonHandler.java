@@ -13,7 +13,7 @@ public class UserJsonHandler {
 
     public String getUsers() {
         try {
-            final File file = new File("server/src/main/res/users.json");
+            final File file = new File("src/main/res/users.json");
             final StringBuilder stringBuilder = new StringBuilder();
             final BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
@@ -29,7 +29,7 @@ public class UserJsonHandler {
 
     public String getUsersWithRevName() {
         try {
-            final File file = new File("server/src/main/res/users.json");
+            final File file = new File("src/main/res/users.json");
             final StringBuilder stringBuilder = new StringBuilder();
             final BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
