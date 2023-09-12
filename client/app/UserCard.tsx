@@ -8,9 +8,6 @@ export type User = {
 }
 
 function UserCard(props: User) {
-
-
-
   return (
     <div className="user-card">
       <h4 className="user-card__id user-card__field">User ID: {props.id}</h4>

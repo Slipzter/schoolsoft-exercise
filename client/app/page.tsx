@@ -12,6 +12,7 @@ function App() {
   const baseURL = "http://localhost:8081/api/methods";
 
   const getRequest = (endpoint: string) => {
+    clear();
     fetch(baseURL + endpoint, {
       method: 'GET',
     })
@@ -26,6 +27,7 @@ function App() {
   };
 
   const postRequest = (endpoint: string, inputType: string) => {
+    clear();
     fetch(baseURL + endpoint, {
       method: 'POST',
       headers:  {
@@ -42,7 +44,8 @@ function App() {
       });
   };
 
-  const postRequest2 = (endpoint: string, inputType1: string, inputType2: string) => {
+  const postReqNthNumber = (endpoint: string, inputType1: string, inputType2: string) => {
+    clear();
     const numbers: number[] = userData.split(',').map((char) => parseInt(char.trim()));
     console.log(numbers.toLocaleString());
     fetch(baseURL + endpoint, {
@@ -93,11 +96,11 @@ function App() {
             onChange={(e) => setNthNumber(e.target.value)}
             className='input-bottom__field input'
           />
-          <button className='button' onClick={() => postRequest2('/findnthlargestnumber', 'numbers', 'nthlargestnumber')}>Find The Nth Largest Number From Your Input</button>
+          <button className='button' onClick={() => postReqNthNumber('/findnthlargestnumber', 'numbers', 'nthlargestnumber')}>Find The Nth Largest Number From Your Input</button>
         </section>
         <aside className="main__output">
           <div className='main__output-text'>
-            {apiResponse ? apiResponse : userArray.map((user: User) => {
+            {apiResponse ? <article className='main__output-string'>{apiResponse.replaceAll('\"', "")}</article> : userArray.map((user: User) => {
               return <UserCard id={user.id} firstname={user.firstname} palindrome={user.palindrome} lastname={user.lastname} age={user.age} username={user.username} />
             })}
           </div>
@@ -110,7 +113,7 @@ function App() {
       </main>
       <footer className='main__footer'>
         <h5 className='dev-name'>Tim Hansson Meng</h5>
-        <a className='link' href="https://github.com/Slipzter"><img className='github-logo' src="https://icons8.com/icon/3tC9EQumUAuq/github" /></a>
+        <a className='link' href="https://github.com/Slipzter"><img className='github-logo' src="github.png" /></a>
         <a className='link' href="https://www.linkedin.com/in/tim-hansson-meng-b9087b118/"><img className='linkedin-logo' src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
       </footer>
     </div>
