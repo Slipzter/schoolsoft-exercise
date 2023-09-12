@@ -76,26 +76,24 @@ function App() {
         <section className='input-top'> 
           <input
             type="text"
-            placeholder="Write Here"
+            placeholder="Input Here"
             value={userData}
             onChange={(e) => setUserData(e.target.value)}
-            className='input-top__field'
+            className='input-top__field input'
           />
           <div className='top-buttons'>
-            <div>
-              <button className='button' onClick={() => postRequest('/reversestring', 'string')}>Reverse Your Input</button>
-              <button className='button' onClick={() => postRequest('/ispalindrome', 'string')}>Check If Your Input Is A Palindrome</button>
-            </div>
-              <button className='button' onClick={() => postRequest('/padnumberwithzeroes', 'number')}>Pad Number With Zeroes</button>
-              <button className='button' onClick={clear}>Clear</button>
-              <input
-                type="text"
-                placeholder="Nth Number Here"
-                value={nthNumber}
-                onChange={(e) => setNthNumber(e.target.value)}
-              />
-             <button onClick={() => postRequest2('/findnthlargestnumber', 'numbers', 'nthlargestnumber')}>Find The Nth Largest Number</button>
+            <button className='button' onClick={() => postRequest('/reversestring', 'string')}>Reverse Your Input</button>
+            <button className='button' onClick={() => postRequest('/ispalindrome', 'string')}>Check If Your Input Is A Palindrome</button>
+            <button className='button' onClick={() => postRequest('/padnumberwithzeroes', 'number')}>Pad Number With Zeroes</button>
           </div>
+          <input
+            type="text"
+            placeholder="Nth Number Here"
+            value={nthNumber}
+            onChange={(e) => setNthNumber(e.target.value)}
+            className='input-bottom__field input'
+          />
+          <button className='button' onClick={() => postRequest2('/findnthlargestnumber', 'numbers', 'nthlargestnumber')}>Find The Nth Largest Number From Your Input</button>
         </section>
         <aside className="main__output">
           <div className='main__output-text'>
@@ -106,13 +104,14 @@ function App() {
           <div className='main__output-buttons'>
             <button className='button' onClick={() => getRequest('/users')}>Get Users</button>
             <button className='button' onClick={() => getRequest('/userswithreversednames')}>Get Users With Reversed First Names</button>
+            <button className='button clear-button' onClick={clear}>Clear</button>
           </div>
-          </aside>
+        </aside>
       </main>
       <footer className='main__footer'>
         <h5 className='dev-name'>Tim Hansson Meng</h5>
-        <a className='link' href="https://github.com/Slipzter"><img className='github-logo' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" /></a>
-        <a className='link' href="https://github.com/Slipzter"><img className='linkedin-logo' src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+        <a className='link' href="https://github.com/Slipzter"><img className='github-logo' src="https://icons8.com/icon/3tC9EQumUAuq/github" /></a>
+        <a className='link' href="https://www.linkedin.com/in/tim-hansson-meng-b9087b118/"><img className='linkedin-logo' src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
       </footer>
     </div>
   );

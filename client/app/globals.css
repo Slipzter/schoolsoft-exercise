@@ -1,8 +1,8 @@
 :root {
-  --main-white: #EEEEEE;
-  --main-light-blue: #176B87;
-  --main-dark-blue: #053B50;
-  --main-teal: #64CCC5;
+  --main-white: #F0F0F0;
+  --main-light-blue: #4F709C;
+  --main-dark-blue: #1e355b;
+  --main-other: #E5D283;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 
 .main__header {
   width: 100vw;
-  background-color: #176B87;
+  background-color: var(--main-dark-blue);
 }
 
 .main__title {
@@ -39,28 +39,54 @@ body {
 }
 
 .input-top {
-  padding: 100px 30px 20px;
   width: 40vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.input-top__field {
+.input {
   width: 400px;
+  height: 30px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  padding-left: 8px;
 }
+
+.input-bottom__field {
+  margin-top: 64px;
+}
+
 
 .top-buttons {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .button {
   width: fit-content;
-  justify-content: space-evenly;
+  background-color: var(--main-white);
+  color: var(--main-dark-blue);
+  outline: var(--main-dark-blue) 1px solid;
+  border: none;
+  border-radius: 4px;
+  margin: 4px;
+  font-size: 1em;
+  padding: 4px;
+}
+
+.button:hover {
+  background-color: var(--main-other);
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: var(--main-light-blue);
+  color: var(--main-white);
 }
 
 .main__output {
@@ -73,7 +99,7 @@ body {
 }
 
 .main__output-text {
-  padding: 20px;
+  padding: 20px 0;
   width: 100%;
   height: 100vh;
   overflow: scroll;
@@ -84,7 +110,7 @@ body {
 
 .main__output-buttons {
   width: 100%;
-  height: 200px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +119,7 @@ body {
 }
 
 .main__footer {
-  background-color: #22668D;
+  background-color: var(--main-dark-blue);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,17 +139,26 @@ body {
 }
 
 .user-card {
-  background-color: var(--main-teal);
+  background-color: var(--main-light-blue);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 400px;
-  color: var(--main-dark-blue);
+  width: 360px;
+  color: var(--main-white);
   padding: 10px;
 }
 
 .user-card__field {
   margin: 8px;
+}
+
+.clear-button {
+  background-color: var(--main-other);
+}
+
+.clear-button:hover {
+  background-color: var(--main-light-blue);
+  color: var(--main-white);
 }
