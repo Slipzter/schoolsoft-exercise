@@ -7,7 +7,14 @@ import java.util.stream.IntStream;
 
 public class NumberHandler {
 
-    public String addZeros(int number) {
+    public String addZeros(String strNumber) {
+        int number;
+        try {
+            number = Integer.parseInt(strNumber);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return null;
+        }
         int stringLength = 6;
         String numberAsString = Integer.toString(number);
         StringBuilder builder = new StringBuilder(numberAsString);

@@ -17,7 +17,7 @@ public class NumberHandlerTests {
 
     @Test
     public void addZerosShouldAddZeroToTheLeftOfInput() {
-        int input = 12345;
+        String input = "12345";
         String result = numberHandler.addZeros(input);
         Assertions.assertEquals("012345", result);
         Assertions.assertEquals(0, result.indexOf("0"));
@@ -25,8 +25,8 @@ public class NumberHandlerTests {
 
     @Test
     public void addZerosShouldAddCorrectAmountOfZeros() {
-        int input1 = 1234;
-        int input2 = 2;
+        String input1 = "1234";
+        String input2 = "2";
         String result1 = numberHandler.addZeros(input1);
         String result2 = numberHandler.addZeros(input2);
         Assertions.assertEquals("001234", result1);

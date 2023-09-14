@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.NumberHandler;
 import util.UserJsonHandler;
 
 public class UserJsonHandlerTests {

@@ -52,9 +52,9 @@ public class MethodsAPI {
     @POST
     @Path("padnumberwithzeroes")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public static Response padNumberWithZeroes(@FormParam("number") int number) {
+    public static Response padNumberWithZeroes(@FormParam("number") String strNumber) {
         return Response.ok(
-                NUMBER_HANDLER.addZeros(number)
+                NUMBER_HANDLER.addZeros(strNumber)
         ).build();
     }
 
