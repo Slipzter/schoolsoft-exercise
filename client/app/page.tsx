@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import UserCard, { User } from './UserCard';
 
 function App() {
-  const [userData, setUserData] = useState('');
+  const [inputData, setInputData] = useState('');
   const [apiResponse, setApiResponse] = useState('');
   const [userArray, setUserArray] = useState([]);
-  const [nthNumber, setNthNumber] = useState('');
+  const [nthNumberInput, setNthNumberInput] = useState('');
 
   const baseURL = "http://localhost:8081/api/methods";
 
@@ -27,15 +27,23 @@ function App() {
 
   const postRequest = (endpoint: string, inputType: string) => {
     clear();
+    if (!inputData) {
+      setApiResponse("Please enter your input first.");
+      return;
+    }
     fetch(baseURL + endpoint, {
       method: 'POST',
       headers:  {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `${inputType}=${userData}`,
+      body: `${inputType}=${inputData}`,
     })
       .then((response) => response.text())
       .then((data) => {
+        if (!data) {
+          setApiResponse("Incorrect input, try again.");
+          return;
+        }
         setApiResponse(JSON.stringify(data));
       })
       .catch((error) => {
@@ -45,14 +53,24 @@ function App() {
 
   const postReqNthNumber = (endpoint: string, inputType1: string, inputType2: string) => {
     clear();
-    const numbers: number[] = userData.split(',').map((char) => parseInt(char.trim()));
-    console.log(numbers.toLocaleString());
+    if (!inputData || !nthNumberInput) {
+      setApiResponse("Please enter your input (both fields).");
+      return;
+    }
+    const numbersInput = inputData.trim();
+    const numbers: number[] = numbersInput.split(',')
+        .map((char) => parseInt(char.trim()))
+        .filter((number) => !isNaN(number));
+    if (numbers.length !== numbersInput.split(',').length || isNaN(parseInt(nthNumberInput))) {
+        setApiResponse("Input numbers only, try again.");
+        return;
+    }
     fetch(baseURL + endpoint, {
       method: 'POST',
       headers:  {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `${inputType1}=${numbers.toLocaleString()}&${inputType2}=${nthNumber}`,
+      body: `${inputType1}=${numbers.toLocaleString()}&${inputType2}=${nthNumberInput}`,
     })
       .then((response) => response.text())
       .then((data) => {
@@ -79,8 +97,8 @@ function App() {
           <input
             type="text"
             placeholder="Input Here"
-            value={userData}
-            onChange={(e) => setUserData(e.target.value)}
+            value={inputData}
+            onChange={(e) => setInputData(e.target.value)}
             className='input-top__field input'
           />
           <div className='top-buttons'>
@@ -91,8 +109,8 @@ function App() {
           <input
             type="text"
             placeholder="Nth Number Here"
-            value={nthNumber}
-            onChange={(e) => setNthNumber(e.target.value)}
+            value={nthNumberInput}
+            onChange={(e) => setNthNumberInput(e.target.value)}
             className='input-bottom__field input'
           />
           <button className='button' onClick={() => postReqNthNumber('/findnthlargestnumber', 'numbers', 'nthlargestnumber')}>Find The Nth Largest Number From Your Input</button>
