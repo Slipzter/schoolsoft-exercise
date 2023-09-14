@@ -20,6 +20,7 @@ public class NumberHandlerTests {
         int input = 12345;
         String result = numberHandler.addZeros(input);
         Assertions.assertEquals("012345", result);
+        Assertions.assertEquals(0, result.indexOf("0"));
     }
 
     @Test
