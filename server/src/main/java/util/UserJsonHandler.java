@@ -52,7 +52,7 @@ public class UserJsonHandler {
         return "";
     }
 
-    private String getFirstName(String string) {
+    public String getFirstName(String string) {
         int commaIndex = string.indexOf(",");
         int nameIndex = string.indexOf(" ", 5);
         return string.substring(nameIndex, commaIndex);
